@@ -21,6 +21,10 @@ class FraudDetector {
         if(trader.getCountry().equals("Jamaica"))
             return true;
 
+        //Rule5
+        if(trader.getCountry().equals("Germany") && transaction.getAmount() > 1000)
+            return true;
+
         return false;
     }
 

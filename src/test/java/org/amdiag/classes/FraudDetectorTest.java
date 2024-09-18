@@ -63,4 +63,31 @@ class FraudDetectorTest {
         Transaction transaction = new Transaction(trader, 100);
         assertTrue(fraudDetector.isFraud(transaction));
     }
+
+    @Test
+    public void shouldNotBeFraudTransactionFromOtherCountryAndAmountLessThan1000() {
+        Trader trader = new Trader("Candy", "city", "otherCountry");
+        Transaction transaction = new Transaction(trader, 999);
+        assertFalse(fraudDetector.isFraud(transaction));
+    }
+
+    @Test
+    public void shouldNotBeFraudTransactionFromGermanyAndAmountLessThan1000() {
+        Trader trader = new Trader("Candy", "city", "Germany");
+        Transaction transaction = new Transaction(trader, 999);
+        assertFalse(fraudDetector.isFraud(transaction));
+    }
+
+    @Test
+    public void shouldNotBeFraudTransactionFromOtherCountryAndAmountMoreThan1000() {
+        Trader trader = new Trader("Candy", "city", "otherCountry");
+        Transaction transaction = new Transaction(trader, 1001);
+        assertFalse(fraudDetector.isFraud(transaction));
+    }
+    @Test
+    public void shouldBeFraudTransactionFromGermanyAndAmountMoreThan1000() {
+        Trader trader = new Trader("Candy", "city", "Germany");
+        Transaction transaction = new Transaction(trader, 1001);
+        assertTrue(fraudDetector.isFraud(transaction));
+    }
 }
