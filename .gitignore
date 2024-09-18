@@ -12,8 +12,9 @@ target/
 *.iws
 *.iml
 *.ipr
-.idea/*
-/.idea/*
+.idea/**
+/.idea/**
+*/.idea/*
 
 ### VS Code ###
 .vscode/

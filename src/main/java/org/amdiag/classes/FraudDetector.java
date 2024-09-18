@@ -13,6 +13,13 @@ class FraudDetector {
         if(transaction.getAmount() > maxThreshold)
             return true;
 
+        //Rule3
+        if(trader.getCity().equals("Sydney"))
+            return true;
+
+        //Rule4
+        if(trader.getCountry().equals("Jamaica"))
+            return true;
 
         return false;
     }
