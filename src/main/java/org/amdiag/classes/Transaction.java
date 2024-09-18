@@ -1,6 +1,6 @@
 package org.amdiag.classes;
 
-class Transaction {
+public class Transaction {
     private Trader trader;
     private int amount;
 

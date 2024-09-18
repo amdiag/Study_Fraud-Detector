@@ -1,6 +1,6 @@
 package org.amdiag.classes;
 
-class Trader {
+public class Trader {
     private String fullName;
     private String city;
     private String country;
