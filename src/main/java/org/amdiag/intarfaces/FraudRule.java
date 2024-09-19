@@ -1,7 +1,8 @@
 package org.amdiag.intarfaces;
 
+import org.amdiag.classes.FraudDetectionResult;
 import org.amdiag.classes.Transaction;
 
 public interface FraudRule {
-    boolean isFraud(Transaction transaction);
+    FraudDetectionResult isFraud(Transaction transaction);
 }

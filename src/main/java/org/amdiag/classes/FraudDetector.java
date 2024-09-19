@@ -10,11 +10,18 @@ public class FraudDetector {
     private FraudRule rule4 = new FraudRule4();
     private FraudRule rule5 = new FraudRule5();
 
-    boolean isFraud(Transaction transaction) {
-        return rule1.isFraud(transaction)
-                || rule2.isFraud(transaction)
-                || rule3.isFraud(transaction)
-                || rule4.isFraud(transaction)
-                || rule5.isFraud(transaction);
+    FraudDetectionResult isFraud(Transaction transaction) {
+        var result = rule1.isFraud(transaction);
+        if (result.isFraudResult()) return result;
+        result = rule2.isFraud(transaction);
+        if (result.isFraudResult()) return result;
+        result = rule3.isFraud(transaction);
+        if (result.isFraudResult()) return result;
+        result = rule4.isFraud(transaction);
+        if (result.isFraudResult()) return result;
+        result = rule5.isFraud(transaction);
+        if (result.isFraudResult()) return result;
+
+        return result;
     }
 }
