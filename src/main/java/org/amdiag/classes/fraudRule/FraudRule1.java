@@ -3,7 +3,7 @@ package org.amdiag.classes.fraudRule;
 import org.amdiag.classes.FraudDetectionResult;
 import org.amdiag.classes.Trader;
 import org.amdiag.classes.Transaction;
-import org.amdiag.intarfaces.FraudRule;
+import org.amdiag.interfaces.FraudRule;
 
 public class FraudRule1 implements FraudRule {
     @Override
@@ -14,7 +14,7 @@ public class FraudRule1 implements FraudRule {
         Trader trader = transaction.getTrader();
         if (trader.getFullName().equals("Pokemon")) {
             result.setFraud(true);
-            result.setRuleName(this.getClass().getSimpleName());
+            result.setRuleName(this.getRuleName());
         }
         return result;
     }
