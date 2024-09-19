@@ -21,4 +21,11 @@ public class FraudRule3Test {
         Transaction transaction = new Transaction(trader, 100);
         assertEquals(fraudRule.isFraud(transaction), new FraudDetectionResult(true, "FraudRule3"));
     }
+
+    @Test
+    public void shouldBeFraudTransactionFromMelbourne() {
+        Trader trader = new Trader("Candy", "Melbourne", "Australia");
+        Transaction transaction = new Transaction(trader, 100);
+        assertEquals(fraudRule.isFraud(transaction), new FraudDetectionResult(true, "FraudRule3"));
+    }
 }
